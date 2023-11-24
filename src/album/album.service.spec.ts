@@ -41,4 +41,26 @@ describe('AlbumService', () => {
     expect(storedalbum.descripcion).toEqual(newUser.descripcion)
     
   });
+
+  it('create should return a error with empty descripcion', async () => {
+    const album: AlbumEntity = {
+      id: "",
+      nombre: faker.person.firstName(),
+      descripcion: "",
+      caratula: faker.lorem.word(),
+      tracks: [],
+      lanzamiento: faker.date.anytime(),
+      performers: []
+    }
+    
+
+    const newUser: AlbumEntity = await service.create(album);
+    expect(newUser).not.toBeNull();
+
+    const storedalbum: AlbumEntity = await repository.findOne({where: {id: newUser.id}})
+    expect(storedalbum).not.toBeNull();
+    expect(storedalbum.nombre).toEqual(newUser.nombre)
+    expect(storedalbum.descripcion).toEqual(newUser.descripcion)
+    
+  });
 });
