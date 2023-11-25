@@ -2,6 +2,7 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { PerformerEntity } from './performer.entity/performer.entity';
+import { BusinessError,BusinessLogicException } from '../shared/errors/bussines-error';
 @Injectable()
 export class PerformerService {
     constructor(

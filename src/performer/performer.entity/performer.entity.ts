@@ -17,6 +17,6 @@ export class PerformerEntity {
     @ManyToOne(() => TrackEntity, track => track.performers)
    cancion: TrackEntity;
 
-   @ManyToOne(()=> AlbumEntity, album => album.perfomers)
+   @ManyToOne(()=> AlbumEntity, album => album.performers)
    album: AlbumEntity;
 }
