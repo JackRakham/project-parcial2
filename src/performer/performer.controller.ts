@@ -6,7 +6,7 @@ import {plainToInstance } from 'class-transformer';
 import { PerformerEntity } from './performer.entity/performer.entity';
 import { PerformerDto } from './performer.dto/performer.dto';
 import { PerformerService } from './performer.service';
-@Controller('performer')
+@Controller('performers')
 export class PerformerController {
     constructor(private readonly performerService:PerformerService) {}
     @Get()

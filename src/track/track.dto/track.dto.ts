@@ -13,6 +13,9 @@ export class TrackDto {
     readonly duracion: string;
 
 
+    @IsString()
+    @IsNotEmpty()
+    readonly albumid: string;
     
 
 

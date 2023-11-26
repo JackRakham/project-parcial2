@@ -9,7 +9,7 @@ import { AlbumPerformerService } from './album-performer.service';
 export class AlbumPerformerController {
     constructor(private readonly albumPerformerService: AlbumPerformerService){}
 
-    @Post(':albumId/artworks/:performerId')
+    @Post(':albumId/tracks/:performerId')
    async addPerformerAlbum(@Param('albumId') albumId: string, @Param('performerId') performerId: string){
        return await this.albumPerformerService.addPerformerToAlbum(albumId, performerId);
    }

@@ -6,7 +6,7 @@ import { Body, Delete, Get, HttpCode, Param, Post, Put, UseInterceptors } from '
 import { AlbumEntity } from './album.entity/album.entity';
 import {plainToInstance } from 'class-transformer';
 import { AlbumDto } from './album.dto/album.dto';
-@Controller('album')
+@Controller('albums')
 @UseInterceptors(BusinessErrorsInterceptor)
 export class AlbumController {
     constructor(private readonly albumService:AlbumService) {}
@@ -25,5 +25,11 @@ export class AlbumController {
   async create(@Body() albumDto: AlbumDto) {
     const album: AlbumEntity = plainToInstance(AlbumEntity, albumDto);
     return await this.albumService.create(album);
+  }
+
+  @Delete(':albumId')
+  @HttpCode(204)
+  async delete(@Param('albumId') albumId: string) {
+    return await this.albumService.delete(albumId);
   }
 }
